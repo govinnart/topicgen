@@ -19,10 +19,8 @@
     />
 
     <!-- SECTION: Styles -->
-    <!-- ⚠️ SESUAIKAN DENGAN NAMA FILE DI GITHUB -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
-
   <body class="gradient-mesh">
     <div class="page-shell grain">
       <!-- Decorative shapes -->
@@ -32,12 +30,10 @@
       <!-- SECTION: Main Content -->
       <main class="layout" aria-label="Generator topik pidato">
         <header class="hero" role="banner">
-          <h1 class="hero__title">
-            Dapatkan ide topik pidato hanya dengan satu klik.
-          </h1>
+          <h1 class="hero__title">Dapatkan ide topik pidato hanya dengan satu klik.</h1>
           <p class="hero__subtitle">
-            Bingung mau membahas apa? Dapatkan topik-topik jelas yang siap dipakai
-            untuk tugas, latihan, atau lomba pidato.
+            Bingung mau membahas apa? Dapatkan topik-topik jelas yang siap dipakai untuk tugas,
+            latihan, atau lomba pidato.
           </p>
         </header>
 
@@ -47,29 +43,28 @@
             <h2 class="generator__title">Generator Topik</h2>
           </div>
 
-          <form class="generator__controls" novalidate>
-            <button type="button" class="btn btn--primary" id="generate-btn">
-              Dapatkan topik
-            </button>
-          </form>
-
-          <div class="generator__output gradient-border shadow-soft" aria-live="polite">
-            <p class="output-label">Topik kamu</p>
-            <div class="output-viewport">
-              <div class="output-track" id="output-track">
-                <p class="output-text" id="topic-text">
-                  Klik "Dapatkan topik" untuk mulai.
-                </p>
-              </div>
-            </div>
+           <form class="generator__controls" novalidate>
+             <button type="button" class="btn btn--primary" id="generate-btn">
+               Dapatkan topik
+             </button>
+           </form>
+ 
+           <div class="generator__output gradient-border shadow-soft" aria-live="polite">
+             <p class="output-label">Topik kamu</p>
+             <div class="output-viewport">
+               <div class="output-track" id="output-track">
+                  <p class="output-text" id="topic-text">
+                    Klik "Dapatkan topik" untuk mulai.
+                  </p>
+               </div>
+             </div>
           </div>
         </section>
       </main>
     </div>
 
     <!-- SECTION: Scripts -->
-    <!-- ⚠️ URUTAN PENTING -->
-    <script src="topics.js"></script>
+    <script src="topic.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
