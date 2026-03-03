@@ -1,54 +1,49 @@
-// ===============================
-// SECTION: Utilities
-// ===============================
+// SECTION: Utils
+// Fungsi untuk mengambil elemen acak dari sebuah array
+const pickRandom = (items) => items[Math.floor(Math.random() * items.length)];
 
-// Ambil elemen random dari array
-const pickRandom = (items) =>
-  items[Math.floor(Math.random() * items.length)];
-
-
-// ===============================
 // SECTION: Elemen DOM
-// ===============================
-
 const topicText = document.getElementById("topic-text");
 const outputTrack = document.getElementById("output-track");
 const generateButton = document.getElementById("generate-btn");
 
-
-// ===============================
-// SECTION: Ambil Data dari topics.js
-// ===============================
-
-// Pastikan topics.js sudah dimuat sebelum file ini
-// (urutan di index.html harus topics.js dulu baru script.js)
-
+// SECTION: Sumber data topik dari topic.js
+// Menggabungkan semua topik dari topicsByLang.en (semua kategori/level)
 function buildCandidateList() {
-  let candidates = [];
+  const candidates = [];
 
-  // GANTI kalau nanti kamu punya multi language
-  const SOURCE = topicsByLang_en;
+  if (!window.topicsByLang || !window.topicsByLang.en) {
+    console.warn("topicsByLang.en tidak ditemukan. Pastikan topic.js sudah dimuat.");
+    return candidates;
+  }
 
-  if (!SOURCE) return candidates;
+  const enTopics = window.topicsByLang.en;
 
-  Object.values(SOURCE).forEach((categoryArray) => {
-    categoryArray.forEach((topic) => {
-      candidates.push(topic); // karena ini sudah string
+  // enTopics bisa berupa { easy: [...], medium: [...], hard: [...] }
+  Object.values(enTopics).forEach((list) => {
+    list.forEach((topic) => {
+      // Jika item berupa objek { text: "..." }
+      if (typeof topic === "object" && topic !== null && "text" in topic) {
+        candidates.push(topic.text);
+      } else if (typeof topic === "string") {
+        // Atau langsung string
+        candidates.push(topic);
+      }
     });
   });
 
   return candidates;
 }
 
-
-// ===============================
-// SECTION: Generator Logic
-// ===============================
-
+// SECTION: Logika generator topik
 function generateTopic() {
   const candidates = buildCandidateList();
-
-  if (!candidates.length) return;
+  if (!candidates.length) {
+    if (topicText) {
+      topicText.textContent = "Data topik belum tersedia. Cek kembali file topic.js.";
+    }
+    return;
+  }
 
   const next = pickRandom(candidates);
 
@@ -71,27 +66,21 @@ function generateTopic() {
   outputTrack.appendChild(oldP);
   outputTrack.appendChild(newP);
 
-  // Tambahkan efek dim
+  // Tambahkan kelas dim untuk efek halus
   outputTrack.parentElement.classList.add("generator__output--dimmed");
 
-  // Setelah animasi selesai, sisakan teks baru
+  // Setelah animasi selesai, sisakan hanya teks baru
   setTimeout(() => {
     outputTrack.parentElement.classList.remove("generator__output--dimmed");
     outputTrack.innerHTML = "";
-
     const finalP = document.createElement("p");
     finalP.className = "output-text";
     finalP.textContent = next;
-
     outputTrack.appendChild(finalP);
   }, 1000);
 }
 
-
-// ===============================
-// SECTION: Event Listener
-// ===============================
-
+// SECTION: Event Handlers
 if (generateButton) {
   generateButton.addEventListener("click", generateTopic);
 }
