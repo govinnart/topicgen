@@ -1,5 +1,10 @@
-topicsByLang.en = {
-    easy: [
+// SECTION: Topic data source
+// Struktur minimal agar generator bisa mengambil data dari topicsByLang.en
+
+window.topicsByLang = window.topicsByLang || {};
+
+window.topicsByLang.en = window.topicsByLang.en || {
+  easy: [
         "Coffee shops at 7 a.m.",
         "Old passwords",
         "Being the youngest in the room",
