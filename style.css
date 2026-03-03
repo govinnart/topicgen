@@ -187,97 +187,6 @@ select {
   margin-bottom: var(--space-5);
 }
 
-.control-group {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.control-group--inline {
-  display: grid;
-  gap: var(--space-4);
-}
-
-@media (min-width: 640px) {
-  .control-group--inline {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-  }
-}
-
-.control-label {
-  font-size: var(--font-size-xs);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--color-text-muted);
-}
-
-.select {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  background-color: rgba(15, 23, 42, 0.9);
-  color: var(--color-text);
-  font-size: var(--font-size-sm);
-  outline: none;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast),
-    background-color var(--transition-fast), transform var(--transition-fast);
-}
-
-.select:focus-visible {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 1px rgba(15, 23, 42, 1),
-    0 0 0 3px rgba(var(--accent-rgb), 0.45);
-}
-
-.select:hover {
-  border-color: var(--color-accent);
-}
-
-/* SECTION: Pills */
-.pill-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.pill {
-  min-width: 88px;
-  padding: 7px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.7);
-  background-color: rgba(15, 23, 42, 0.85);
-  color: var(--color-text-muted);
-  font-size: var(--font-size-sm);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transition: background-color var(--transition-fast), border-color var(--transition-fast),
-    color var(--transition-fast), transform var(--transition-fast),
-    box-shadow var(--transition-fast);
-}
-
-.pill:hover {
-  border-color: var(--color-accent);
-  color: var(--color-text);
-  transform: translateY(-1px);
-}
-
-.pill:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.55);
-}
-
-.pill--active {
-  border-color: transparent;
-  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.5), transparent 55%),
-    var(--color-accent-soft);
-  color: var(--color-text);
-}
-
 /* SECTION: Buttons */
 .btn {
   position: relative;
@@ -378,7 +287,7 @@ select {
   transition: opacity var(--transition-fast), filter var(--transition-fast);
 }
 
-/* SECTION: Visual Effects (from visual-effects skill) */
+/* SECTION: Visual Effects */
 .gradient-mesh {
   background:
     radial-gradient(at 40% 20%, hsla(200, 100%, 60%, 0.22) 0px, transparent 50%),
@@ -459,4 +368,3 @@ select {
     padding: var(--space-5) var(--space-4);
   }
 }
-
