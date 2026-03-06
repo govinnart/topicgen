@@ -239,15 +239,22 @@ select {
 
 .output-label {
   margin: 0 0 var(--space-2);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-md);
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   color: var(--color-text-muted);
 }
 
 .output-text {
   margin: 0;
-  font-size: var(--font-size-lg);
+  font-size: clamp(2.1rem, 3vw, 2.7rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.output-text {
+  margin: 0;
+  font-size: 25px;
   line-height: 1.6;
 }
 
