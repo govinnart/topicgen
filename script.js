@@ -84,3 +84,4 @@ function generateTopic() {
 if (generateButton) {
   generateButton.addEventListener("click", generateTopic);
 }
+
